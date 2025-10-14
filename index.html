@@ -3,28 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>User Profile Dashboard - Roll No 38</title>
+  <title>Student Registration Form - Roll No 38</title>
   <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
 </head>
 <body>
-  <!-- Navbar -->
-  <nav class="navbar">
-    <h1>👨‍💻 User Dashboard - Roll No 38</h1>
-    <div class="nav-links">
-      <a href="index.html">Profile</a>
-      <a href="activities.html">Activities</a>
-    </div>
-  </nav>
+  <div class="container">
+    <h2>Student Registration Form</h2>
+    <form id="registrationForm" onsubmit="return validateForm()">
+      <label>Username:</label>
+      <input type="text" id="username" placeholder="Enter username">
 
-  <!-- Profile Section -->
-  <section class="profile-card">
-    <img src="https://i.pravatar.cc/150?img=38" alt="Profile Picture" class="profile-img">
-    <h2 id="username">Maaz Visawaderwala</h2>
-    <p><strong>Email:</strong> maaz38@mitwpu.edu.in</p>
-    <p><strong>Bio:</strong> Cyber Security & Forensics | BTech CSE Student | MIT-WPU</p>
-    <button id="editBtn">Edit Bio</button>
-  </section>
+      <label>Email:</label>
+      <input type="text" id="email" placeholder="Enter email">
 
-  <script src="script.js"></script>
+      <label>Phone Number:</label>
+      <input type="text" id="phone" placeholder="Enter 10-digit phone number">
+
+      <label>Password:</label>
+      <input type="password" id="password" placeholder="Enter password">
+
+      <label>Confirm Password:</label>
+      <input type="password" id="confirmPassword" placeholder="Re-enter password">
+
+      <input type="submit" value="Register">
+    </form>
+
+    <p id="result"></p>
+  </div>
 </body>
 </html>

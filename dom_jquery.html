@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM and jQuery Example - Roll No 38</title>
+  <style>
+    body { font-family: Arial; text-align: center; margin-top: 40px; }
+    #demo { color: blue; font-size: 20px; }
+    img { width: 150px; height: 150px; border-radius: 10px; margin-top: 10px; }
+    button { margin: 10px; padding: 8px 15px; border: none; border-radius: 5px; background-color: #007bff; color: white; cursor: pointer; }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+  <h2>DOM Manipulation & jQuery Demo</h2>
+
+  <p id="demo">Welcome to Web Technologies Lab!</p>
+  <button onclick="changeText()">Change Text</button>
+  <button onclick="changeColor()">Change Color</button>
+  <button onclick="changeImage()">Change Image</button>
+  <button id="jqueryBtn">jQuery Button</button>
+
+  <div id="imageContainer">
+    <img id="mainImg" src="https://via.placeholder.com/150" alt="Placeholder">
+  </div>
+
+  <script>
+    // DOM Methods
+    function changeText() {
+      document.getElementById("demo").innerHTML = "Text changed using DOM!";
+    }
+
+    function changeColor() {
+      document.getElementById("demo").style.color = "red";
+    }
+
+    function changeImage() {
+      document.getElementById("mainImg").src = "https://picsum.photos/200";
+    }
+
+    // Add new text node
+    const newText = document.createTextNode(" - Added dynamically!");
+    document.getElementById("demo").appendChild(newText);
+
+    // jQuery Section
+    $(document).ready(function() {
+      $("#jqueryBtn").click(function() {
+        $(this).text("Text changed via jQuery!");
+        $("body").css("background-image", "linear-gradient(to right, #f7b733, #fc4a1a)");
+        alert("Accessed form data and modified background using jQuery!");
+      });
+    });
+  </script>
+
+</body>
+</html>
