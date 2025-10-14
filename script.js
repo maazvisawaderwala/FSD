@@ -1,52 +1,40 @@
-const apiUrl = '/api/products';
+const products = [
+  {
+    name: "Wireless Headphones",
+    price: 1499,
+    image: "https://images.unsplash.com/photo-1585386959984-a4155224bdea?w=400",
+    description: "Noise-cancelling Bluetooth headphones with rich bass."
+  },
+  {
+    name: "Smart Watch",
+    price: 2999,
+    image: "https://images.unsplash.com/photo-1598970434795-0c54fe7c0642?w=400",
+    description: "Track your health, fitness, and notifications on the go."
+  },
+  {
+    name: "Gaming Mouse",
+    price: 799,
+    image: "https://images.unsplash.com/photo-1617787168943-b97e74fdfd62?w=400",
+    description: "High DPI RGB gaming mouse with customizable buttons."
+  },
+  {
+    name: "Laptop Backpack",
+    price: 1299,
+    image: "https://images.unsplash.com/photo-1600185365225-c9a9834b8b6b?w=400",
+    description: "Stylish and durable backpack with multiple compartments."
+  }
+];
 
-async function loadProducts() {
-  const res = await fetch(apiUrl);
-  const data = await res.json();
+function openModal(index) {
+  const product = products[index];
+  document.getElementById("modal-name").textContent = product.name;
+  document.getElementById("modal-desc").textContent = product.description;
+  document.getElementById("modal-price").textContent = `Price: ₹${product.price}`;
+  document.getElementById("modal-img").src = product.image;
 
-  const grid = document.getElementById('product-grid') || document.getElementById('admin-grid');
-  if (!grid) return;
-  grid.innerHTML = '';
-
-  data.forEach(p => {
-    const card = document.createElement('div');
-    card.className = 'card';
-    card.innerHTML = `
-      <img src="${p.image}" alt="${p.name}">
-      <h3>${p.name}</h3>
-      <p>₹${p.price}</p>
-      <p>${p.description}</p>
-      ${grid.id === 'admin-grid' ? `
-        <button onclick="deleteProduct('${p._id}')">Delete</button>
-      ` : ''}
-    `;
-    grid.appendChild(card);
-  });
+  document.getElementById("modal").style.display = "flex";
 }
 
-async function deleteProduct(id) {
-  await fetch(`${apiUrl}/${id}`, { method: 'DELETE' });
-  loadProducts();
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
 }
-
-const form = document.getElementById('product-form');
-if (form) {
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const product = {
-      name: document.getElementById('name').value,
-      price: document.getElementById('price').value,
-      image: document.getElementById('image').value,
-      description: document.getElementById('description').value
-    };
-    await fetch(apiUrl, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(product)
-    });
-    form.reset();
-    loadProducts();
-  });
-}
-
-window.onload = loadProducts;
