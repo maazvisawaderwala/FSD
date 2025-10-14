@@ -3,60 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>E-Commerce Product Gallery - Roll No 38</title>
+  <title>User Profile Dashboard - Roll No 38</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <!-- Navbar -->
   <nav class="navbar">
-    <h1>🛍️ Product Gallery - Roll No 38</h1>
+    <h1>👨‍💻 User Dashboard - Roll No 38</h1>
     <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
+      <a href="index.html">Profile</a>
+      <a href="activities.html">Activities</a>
     </div>
   </nav>
 
-  <!-- Product Gallery -->
-  <section class="product-gallery">
-    <h2>Available Products</h2>
-    <div class="product-grid">
-      <div class="product-card" onclick="openModal(0)">
-        <img src="https://images.unsplash.com/photo-1585386959984-a4155224bdea?w=400" alt="Headphones">
-        <h3>Wireless Headphones</h3>
-        <p>₹1499</p>
-      </div>
-
-      <div class="product-card" onclick="openModal(1)">
-        <img src="https://images.unsplash.com/photo-1598970434795-0c54fe7c0642?w=400" alt="Smart Watch">
-        <h3>Smart Watch</h3>
-        <p>₹2999</p>
-      </div>
-
-      <div class="product-card" onclick="openModal(2)">
-        <img src="https://images.unsplash.com/photo-1617787168943-b97e74fdfd62?w=400" alt="Gaming Mouse">
-        <h3>Gaming Mouse</h3>
-        <p>₹799</p>
-      </div>
-
-      <div class="product-card" onclick="openModal(3)">
-        <img src="https://images.unsplash.com/photo-1600185365225-c9a9834b8b6b?w=400" alt="Laptop Backpack">
-        <h3>Laptop Backpack</h3>
-        <p>₹1299</p>
-      </div>
-    </div>
+  <!-- Profile Section -->
+  <section class="profile-card">
+    <img src="https://i.pravatar.cc/150?img=38" alt="Profile Picture" class="profile-img">
+    <h2 id="username">Maaz Visawaderwala</h2>
+    <p><strong>Email:</strong> maaz38@mitwpu.edu.in</p>
+    <p><strong>Bio:</strong> Cyber Security & Forensics | BTech CSE Student | MIT-WPU</p>
+    <button id="editBtn">Edit Bio</button>
   </section>
-
-  <!-- Modal -->
-  <div id="modal" class="modal-overlay" onclick="closeModal()">
-    <div class="modal-content" onclick="event.stopPropagation()">
-      <button class="close-btn" onclick="closeModal()">✖</button>
-      <img id="modal-img" src="" alt="Product" class="modal-img">
-      <h2 id="modal-name"></h2>
-      <p id="modal-desc"></p>
-      <h3 id="modal-price"></h3>
-      <button class="buy-btn">Buy Now</button>
-    </div>
-  </div>
 
   <script src="script.js"></script>
 </body>
